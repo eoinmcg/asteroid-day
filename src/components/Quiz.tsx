@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { H1, Section } from './UI';
 import { QuizButton } from './QuizButton';
-import { Check, X} from 'lucide-react';
+import { StarField } from './StarField';
+import { Check, X, Github } from 'lucide-react';
 import { DownloadCertificate } from './DownloadCertificate';
 import { SocialShare } from './SocialShare';
 
@@ -91,6 +92,19 @@ export function Quiz() {
 
   return (
     <Section bgColor="bg-blue-900" showDownNav={false}>
+      <StarField />
+      <div className="absolute bottom-0 py-2 text-white/30 flex gap-4">
+        <a href="https://eoinmcgrath.com"
+          target="_blank"
+          className="hover:text-white hover:drop-shadow-glow transition-all duration-300">
+          &copy; eoinmcg
+        </a>
+        <a href="https://github.com/eoinmcg/asteroid-day"
+          target="_blank"
+          className="hover:text-white hover:drop-shadow-glow transition-all duration-300">
+          <Github />
+        </a>
+      </div>
       <div className="text-center opacity-5 translate-y-full intersect:opacity-100 intersect:translate-y-0 intersect-once delay-200 transition ease-out duration-500">
         {!showQuiz && (
           <>
@@ -133,6 +147,7 @@ export function Quiz() {
 
         {showResult && (
           <div className={`text-white transition-opacity duration-500 ${showResult ? 'opacity-100' : 'opacity-0'}`}>
+
             <div className="bg-black/0 p-6 rounded-lg mb-6">
               <p className="text-2xl mb-4 font-orbitron text-white/30">You scored {calculateScore()} out of {selectedQuestions.length}</p>
               {calculateScore() === selectedQuestions.length 
@@ -168,3 +183,5 @@ export function Quiz() {
     </Section>
   );
 }
+
+
