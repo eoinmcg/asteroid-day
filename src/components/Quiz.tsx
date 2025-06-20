@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { H1, Section } from './UI';
 import { QuizButton } from './QuizButton';
-import { StarField } from './StarField';
+import { StarryBg } from './StarryBg';
 import { Check, X, Github } from 'lucide-react';
 import { DownloadCertificate } from './DownloadCertificate';
 import { SocialShare } from './SocialShare';
@@ -92,7 +92,7 @@ export function Quiz() {
 
   return (
     <Section bgColor="bg-blue-900" showDownNav={false}>
-      <StarField />
+      <StarryBg />
       <div className="absolute bottom-4 py-2 text-white/30 flex gap-4">
         <a href="https://eoinmcgrath.com"
           target="_blank"

@@ -1,47 +1,93 @@
+import { useRef, useMemo } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+
 export function StarField() {
   return (
-<div className={`absolute top-0 left-0 w-screen h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 overflow-hidden`}>
-  {/* Stars background */}
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {/* Large stars */}
-    <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse"></div>
-    <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-pulse animation-delay-1000"></div>
-    <div className="absolute top-1/2 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse animation-delay-2000"></div>
-    <div className="absolute bottom-1/3 right-1/3 w-1 h-1 bg-white rounded-full animate-pulse animation-delay-3000"></div>
-    <div className="absolute bottom-1/4 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse animation-delay-4000"></div>
-    
-    {/* Medium stars */}
-    <div className="absolute top-1/5 left-1/2 w-0.5 h-0.5 bg-white/80 rounded-full animate-pulse animation-delay-500"></div>
-    <div className="absolute top-2/3 right-1/5 w-0.5 h-0.5 bg-white/80 rounded-full animate-pulse animation-delay-1500"></div>
-    <div className="absolute bottom-1/5 left-2/3 w-0.5 h-0.5 bg-white/80 rounded-full animate-pulse animation-delay-2500"></div>
-    <div className="absolute top-1/6 right-2/5 w-0.5 h-0.5 bg-white/80 rounded-full animate-pulse animation-delay-3500"></div>
-    <div className="absolute bottom-2/5 right-1/6 w-0.5 h-0.5 bg-white/80 rounded-full animate-pulse animation-delay-4500"></div>
-    
-    {/* Small stars */}
-    <div className="absolute top-1/8 left-1/6 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute top-3/4 left-3/4 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute top-1/7 right-1/7 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute bottom-1/8 left-4/5 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute top-5/6 right-3/4 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute top-2/5 left-1/8 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute bottom-1/6 right-4/5 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute top-4/5 left-1/7 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute bottom-3/5 right-1/8 w-px h-px bg-white/60 rounded-full"></div>
-    <div className="absolute top-1/10 left-3/5 w-px h-px bg-white/60 rounded-full"></div>
-  </div>
-  
-  <style>{`
-    .animation-delay-500 { animation-delay: 0.5s; }
-    .animation-delay-1000 { animation-delay: 1s; }
-    .animation-delay-1500 { animation-delay: 1.5s; }
-    .animation-delay-2000 { animation-delay: 2s; }
-    .animation-delay-2500 { animation-delay: 2.5s; }
-    .animation-delay-3000 { animation-delay: 3s; }
-    .animation-delay-3500 { animation-delay: 3.5s; }
-    .animation-delay-4000 { animation-delay: 4s; }
-    .animation-delay-4500 { animation-delay: 4.5s; }
-  `}</style>
-</div>
+    <Canvas
+      camera={{ position: [0, 0, 0], fov: 75 }}
+      style={{ background: '#000' }}
+    >
+      <MovingStars />
+    </Canvas>
   );
 }
 
+// Create a circular texture for the stars
+function createCircleTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  canvas.width = 32;
+  canvas.height = 32;
+
+  const center = 16;
+  const radius = 16;
+
+  if (context) {
+    context.beginPath();
+    context.arc(center, center, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = 'white';
+    context.fill();
+  }
+
+  const texture = new THREE.CanvasTexture(canvas);
+  return texture;
+}
+
+function MovingStars() {
+  const meshRef = useRef<THREE.Points>(null);
+  const speed = 1.5;
+  
+  // Generate random star positions
+  const starPositions = useMemo(() => {
+    const positions = new Float32Array(1500 * 3);
+    for (let i = 0; i < 1500; i++) {
+      // Distribute stars in a large cube around the camera
+      positions[i * 3] = (Math.random() - 0.5) * 600;     // x
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 600; // y
+      positions[i * 3 + 2] = Math.random() * 800 - 400;   // z (from -400 to 400)
+    }
+    return positions;
+  }, []);
+
+  useFrame(() => {
+    if (meshRef.current && meshRef.current.geometry.attributes.position) {
+      const positions = meshRef.current.geometry.attributes.position.array as Float32Array;
+      
+      // Move each star towards the camera
+      for (let i = 0; i < positions.length; i += 3) {
+        positions[i + 2] += speed; // Move in positive z direction (towards camera)
+        
+        // Reset star position if it passes the camera (much further ahead)
+        if (positions[i + 2] > 100) {
+          positions[i + 2] = -500;
+          // Randomize x and y position for variety
+          positions[i] = (Math.random() - 0.5) * 600;
+          positions[i + 1] = (Math.random() - 0.5) * 600;
+        }
+      }
+      
+      // Mark the position attribute as needing an update
+      meshRef.current.geometry.attributes.position.needsUpdate = true;
+    }
+  });
+
+  return (
+    <points ref={meshRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          args={[starPositions, 3]}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        color="white"
+        size={0.8}
+        sizeAttenuation={true}
+        transparent={true}
+        alphaTest={0.5}
+        map={createCircleTexture()}
+      />
+    </points>
+  );
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AsteroidField } from './components/AsteroidField';
+import { StarField } from './components/StarField';
 import { Observer } from 'tailwindcss-intersect';
 
 import { Quiz } from './components/Quiz';
@@ -22,7 +23,6 @@ const AsteroidDay: React.FC = () => {
 
   return (
     <main className="max-h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden">
-
       <Section showDownNav={showArrow}>
         <div className="animate-fade-in animation-delay-2500">
         <BgImage img="space-bg.webp" />
@@ -45,7 +45,10 @@ const AsteroidDay: React.FC = () => {
         </div>
       </Section>
 
-      <Section bgColor="bg-yellow-500" showDownNav={true}>
+      <Section showDownNav={true}>
+        <div className="absolute top-0 left-0 w-screen h-screen animate-fade animation-delay-1000">
+          <StarField />
+        </div>
         <div className="text-center opacity-5 translate-y-full intersect:opacity-100 intersect:translate-y-0 intersect-once delay-200 transition ease-out duration-500 text-shadow-xl">
         <H1>Did You Know?</H1>
         </div>
