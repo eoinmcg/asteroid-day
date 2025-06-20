@@ -1,6 +1,6 @@
 export function StarryBg() {
   return (
-<div className={`absolute top-0 left-0 w-screen h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 overflow-hidden`}>
+<div className={`absolute top-0 left-0 w-screen h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 overflow-hidden`}>
   {/* Stars background */}
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
     {/* Large stars */}
