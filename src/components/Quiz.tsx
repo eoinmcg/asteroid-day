@@ -93,7 +93,7 @@ export function Quiz() {
   return (
     <Section bgColor="bg-blue-900" showDownNav={false}>
       <StarField />
-      <div className="absolute bottom-0 py-2 text-white/30 flex gap-4">
+      <div className="absolute bottom-4 py-2 text-white/30 flex gap-4">
         <a href="https://eoinmcgrath.com"
           target="_blank"
           className="hover:text-white hover:drop-shadow-glow transition-all duration-300">
@@ -183,5 +183,3 @@ export function Quiz() {
     </Section>
   );
 }
-
-

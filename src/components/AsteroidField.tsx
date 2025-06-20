@@ -66,7 +66,7 @@ export function AsteroidField() {
           rotationSpeed={asteroid.rotationSpeed}
         />
       ))}
-    <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={1} />
+    <OrbitControls enableZoom={true} enablePan={true} autoRotate autoRotateSpeed={1} />
     </Canvas>
   );
 }
