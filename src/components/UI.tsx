@@ -19,8 +19,8 @@ export function Section({bgColor, showDownNav, children}: SectionProps) {
       <section className={`snap-start h-screen flex items-center justify-center relative ${bgColor}`}>
         {children}
         {showDownNav && (
-          <div className="absolute bottom-20 right-8 text-white animate-bounce hover:animate-none hover:cursor-pointer" onClick={handleNav}>
-          <div className="bg-white/20 hover:bg-white/30 border-2 border-white/20 p-2 rounded-full">
+          <div className="absolute bottom-20 right-8 text-white" onClick={handleNav}>
+          <div className="bg-white/20 border-2 border-white/20 p-2 rounded-full animate-bounce hover:animate-none hover:cursor-pointer  hover:bg-amber-300/30 hover:border-amber-500">
             <ArrowDown />
           </div>
           </div>
