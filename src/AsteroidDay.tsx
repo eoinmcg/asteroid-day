@@ -25,7 +25,7 @@ const AsteroidDay: React.FC = () => {
     <main className="max-h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden">
       <Section showDownNav={showArrow}>
         <div className="animate-fade-in animation-delay-2500">
-        <BgImage img="space-bg.webp" />
+        <BgImage img="space-bg2.webp" />
         <div className="absolute top-0 left-0 w-screen h-screen animate-fade animation-delay-5000">
           <AsteroidField />
         </div>

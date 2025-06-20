@@ -16,7 +16,7 @@ export const LoadingScreen = ({ onLoad }: LoadingScreenProps) => {
       'nasa-dart.webp',
       'ceres-vintage.webp',
       'jupiter-vintage.webp',
-      'space-bg.webp',
+      'space-bg2.webp',
       'bluesky.svg',
     ];
 
@@ -66,7 +66,7 @@ export const LoadingScreen = ({ onLoad }: LoadingScreenProps) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundImage: 'url("space-bg.webp")',
+        backgroundImage: 'url("space-bg2.webp")',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
