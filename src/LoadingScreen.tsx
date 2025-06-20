@@ -35,7 +35,7 @@ export const LoadingScreen = ({ onLoad }: LoadingScreenProps) => {
 
         onLoad();
 
-        const timeoutId: number = setTimeout(() => {
+        const timeoutId: ReturnType<typeof setTimeout> = setTimeout(() => {
           setComplete(true)
         }, 1000);
 
