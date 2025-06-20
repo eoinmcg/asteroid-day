@@ -21,7 +21,7 @@ export function GenerateCertificate({username}: {username: string}) {
         console.error('Failed to load image:', error);
       };
 
-      img.src = '/asteroid.svg'; // Adjust path as needed
+      img.src = 'asteroid.svg'; // Adjust path as needed
     });
   }, []);
 
