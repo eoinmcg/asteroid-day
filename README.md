@@ -2,17 +2,19 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[View live here](https://eoinmcgrath.com/asteroid-day/)
+## [View live here](https://eoinmcgrath.com/asteroid-day/)
 
 An interactive landing page to celebrate World Asteroid Day.
 Featuring:
-- real asteroid field
-- space travel
-- interesting facts
-- interactive quiz
-- downloadable personalized certificate.
+
+- ☄️real asteroid field
+- 🚀 space travel
+- ℹ️ interesting facts
+- ❓ interactive quiz
+- 🧑‍🎓downloadable personalized certificate.
 
 Submission to the dev.to Frontend Challenge, category [Perfect Landing: June Celebrations](https://dev.to/challenges/frontend-2025-06-04)
+
 ## Tech used
 
 - React with typescript
