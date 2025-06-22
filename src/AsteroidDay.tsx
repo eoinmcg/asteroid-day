@@ -55,7 +55,9 @@ const AsteroidDay: React.FC = () => {
       </Section>
 
       <Section showDownNav={true}>
-        <BgImage img="asteroid-belt-vintage.webp" overlay={'bg-black/25'} />
+        <BgImage img="asteroid-belt-vintage.webp" overlay={'bg-black/25'} 
+          credit="Image: AI"
+        />
         <div 
           className="opacity-5 translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500"
         >
@@ -70,8 +72,20 @@ const AsteroidDay: React.FC = () => {
       </Section>
 
       <Section showDownNav={true}>
+        <BgImage img="tunguska.webp" overlay={'bg-black/25'} 
+         credit="Image: AI"/>
+        <div 
+          className="opacity-5 translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500"
+        >
+          <Fact title="#1b">
+            The <Highlight styles="delay-1000">Tunguska event</Highlight>, the <Highlight styles="delay-1500">largest asteroid impact in recorded history</Highlight>, occurred on June 30, 1908, when a 50-60 meter asteroid struck Tunguska, Siberia, flattening 2,000 square km of forest.
+          </Fact>
+        </div>
+      </Section>
+
+      <Section showDownNav={true}>
         <BgImage img="nasa-dart.webp" overlay={'bg-black/25'} 
-          credit="Photo: NASA" creditLink="https://science.nasa.gov/planetary-defense-dart/" />
+          credit="Image: NASA" creditLink="https://science.nasa.gov/planetary-defense-dart/" />
         <div className="opacity-5 -translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
           <Fact title="#2">
             NASA's DART mission 
@@ -82,7 +96,9 @@ const AsteroidDay: React.FC = () => {
       </Section>
 
       <Section showDownNav={true}>
-        <BgImage img="ceres-vintage.webp" overlay={'bg-black/25'} />
+        <BgImage img="ceres-vintage.webp" overlay={'bg-black/25'}
+          credit="Image: AI"
+        />
         <div className="opacity-5 translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
           <Fact title="#3">
             The largest asteroid,
@@ -94,7 +110,9 @@ const AsteroidDay: React.FC = () => {
       </Section>
 
       <Section showDownNav={true}>
-        <BgImage img="gemini-mining.webp" overlay={'bg-black/25'} />
+        <BgImage img="mining.webp" overlay={'bg-black/25'}
+          credit="Image: AI"
+        />
         <div className="opacity-5 -translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
           <Fact title="#4">
             Some asteroids contain precious metals worth 
@@ -106,7 +124,9 @@ const AsteroidDay: React.FC = () => {
       </Section>
 
       <Section showDownNav={true}>
-        <BgImage img="jupiter-vintage.webp" overlay={'bg-black/25'} />
+        <BgImage img="jupiter-vintage.webp" overlay={'bg-black/25'} 
+          credit="Image: AI"
+        />
         <div className="opacity-5 translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
           <Fact title="#5">
             The asteroid belt between Mars and Jupiter contains 99.9% of all known asteroids in our solar system.

@@ -44,7 +44,7 @@ export function BgImage({img, overlay, credit, creditLink}: BgImageProps) {
       <div className={`absolute inset-0 ${overlay}`}></div>
       
       {credit && (
-        <div className="absolute bottom-4 left-4 z-10">
+        <div className="absolute bottom-0 left-0 p-2 z-10">
           {creditLink ? (
             <a 
               href={creditLink}

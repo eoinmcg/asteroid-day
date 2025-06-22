@@ -14,4 +14,5 @@ Entry to the dev.to Frontend Challenge, category [Perfect Landing: June Celebrat
 - Tailwind CSS for styling
 - Google Gemini (free plan) for image generation
 
+![World Asteroid Day](https://raw.githubusercontent.com/eoinmcg/asteroid-day/refs/heads/main/public/ogimage.webp)
 ![Ceres - the largest asteroid in the asteroid belt](https://raw.githubusercontent.com/eoinmcg/asteroid-day/refs/heads/main/public/ceres-vintage.webp)

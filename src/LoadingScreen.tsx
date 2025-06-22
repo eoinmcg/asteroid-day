@@ -17,6 +17,8 @@ export const LoadingScreen = ({ onLoad }: LoadingScreenProps) => {
       'ceres-vintage.webp',
       'jupiter-vintage.webp',
       'space-bg2.webp',
+      'tunguska.webp',
+      'mining.webp',
       'bluesky.svg',
     ];
 
