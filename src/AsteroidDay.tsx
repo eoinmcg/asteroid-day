@@ -54,7 +54,7 @@ const AsteroidDay: React.FC = () => {
         </div>
       </Section>
 
-      <Section bgColor="bg-yellow-500" showDownNav={true}>
+      <Section showDownNav={true}>
         <BgImage img="asteroid-belt-vintage.webp" overlay={'bg-black/25'} />
         <div 
           className="opacity-5 translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500"
@@ -69,7 +69,7 @@ const AsteroidDay: React.FC = () => {
         </div>
       </Section>
 
-      <Section bgColor="bg-yellow-500" showDownNav={true}>
+      <Section showDownNav={true}>
         <BgImage img="nasa-dart.webp" overlay={'bg-black/25'} 
           credit="Photo: NASA" creditLink="https://science.nasa.gov/planetary-defense-dart/" />
         <div className="opacity-5 -translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
@@ -81,7 +81,7 @@ const AsteroidDay: React.FC = () => {
         </div>
       </Section>
 
-      <Section bgColor="bg-yellow-500" showDownNav={true}>
+      <Section showDownNav={true}>
         <BgImage img="ceres-vintage.webp" overlay={'bg-black/25'} />
         <div className="opacity-5 translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
           <Fact title="#3">
@@ -93,7 +93,7 @@ const AsteroidDay: React.FC = () => {
         </div>
       </Section>
 
-      <Section bgColor="bg-yellow-500" showDownNav={true}>
+      <Section showDownNav={true}>
         <BgImage img="gemini-mining.webp" overlay={'bg-black/25'} />
         <div className="opacity-5 -translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
           <Fact title="#4">
@@ -105,7 +105,7 @@ const AsteroidDay: React.FC = () => {
         </div>
       </Section>
 
-      <Section bgColor="bg-yellow-500" showDownNav={true}>
+      <Section showDownNav={true}>
         <BgImage img="jupiter-vintage.webp" overlay={'bg-black/25'} />
         <div className="opacity-5 translate-x-full intersect:opacity-100 intersect:translate-x-0 intersect-once delay-200 transition ease-out duration-500">
           <Fact title="#5">
